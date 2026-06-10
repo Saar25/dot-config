@@ -9,6 +9,7 @@ map("i", "jk", "<ESC>")
 map("n", "<leader>e", ":lua vim.diagnostic.open_float(0, {scope=\"line\"})<CR>", { desc = "Show error" })
 map("n", "<leader>mp", ":MarkdownPreview<CR>", { desc = "Markdown Preview" })
 map('n', '<leader>fr', '<cmd>Telescope lsp_references<CR>', { desc = "telescope find references", noremap=true, silent=true })
+map('n', '<leader>ad', '<cmd>Noice dismiss<CR>', { desc = "noice dismiss", noremap=true, silent=true })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
