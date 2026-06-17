@@ -37,6 +37,20 @@ return {
         opts = require "configs.telescope",
     },
     {
+        "nvim-treesitter/nvim-treesitter",
+        event = { "BufReadPost", "BufNewFile" },
+        cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
+        build = ":TSUpdate | TSInstallAll",
+        opts = require "configs.treesitter",
+    },
+    {
+        "windwp/nvim-ts-autotag",
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
+        lazy = false,
+        opts = require "configs.autotag",
+        config = true,
+    },
+    {
         "MeanderingProgrammer/render-markdown.nvim",
         dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.icons" }, -- or nvim-web-devicons
         ft = { "markdown" },
