@@ -4,12 +4,43 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 
-map("n", ";", ":", { desc = "CMD enter command mode" })
+map("n", ";", ":", {
+    desc = "CMD enter command mode",
+})
+
 map("i", "jk", "<ESC>")
-map("n", "<leader>e", ":lua vim.diagnostic.open_float(0, {scope=\"line\"})<CR>", { desc = "Show error" })
-map("n", "<leader>mp", ":MarkdownPreview<CR>", { desc = "Markdown Preview" })
-map('n', '<leader>fr', '<cmd>Telescope lsp_references<CR>', { desc = "telescope find references", noremap=true, silent=true })
-map('n', '<leader>ad', '<cmd>Noice dismiss<CR>', { desc = "noice dismiss", noremap=true, silent=true })
+
+map("n", "<leader>e", ':lua vim.diagnostic.open_float(0, {scope="line"})<CR>', {
+    desc = "Show error",
+})
+
+map("n", "<leader>mp", ":MarkdownPreview<CR>", {
+    desc = "Markdown Preview",
+})
+
+map("n", "<leader>fr", "<cmd>Telescope lsp_references<CR>", {
+    desc = "telescope find references",
+    noremap = true,
+    silent = true,
+})
+
+map("n", "<leader>ad", "<cmd>Noice dismiss<CR>", {
+    desc = "noice dismiss",
+    noremap = true,
+    silent = true,
+})
+
+map("n", "<leader>fW", function()
+    require("telescope.builtin").live_grep()
+end, { desc = "Telescope Live Grep" })
+
+map("n", "<leader>fw", function()
+    require("telescope.builtin").live_grep {
+        additional_args = function()
+            return { "--fixed-strings" }
+        end,
+    }
+end, { desc = "Telescope Live Grep" })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
