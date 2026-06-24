@@ -1,0 +1,11 @@
+# Ignore everything in .config by default
+/*
+
+# Unignore the specific directories you want to track
+!.gitignore
+!/nvim/
+!/tmux/
+
+# Ignore OS-specific junk or local lockfiles
+**/.DS_Store
+**/node_modules/
