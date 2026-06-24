@@ -4,6 +4,7 @@
 # Unignore the specific directories you want to track
 !.gitignore
 !README.md
+!LICENSE
 !/nvim/
 !/tmux/
 
