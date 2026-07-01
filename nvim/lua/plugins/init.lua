@@ -15,6 +15,17 @@ return {
         end,
     },
     {
+        "lewis6991/gitsigns.nvim",
+        opts = {
+            current_line_blame = true, -- Enables the core feature
+            current_line_blame_opts = {
+                virt_text = true,
+                virt_text_pos = "eol", -- Places blame at the end of the line
+                delay = 100, -- Delay in milliseconds before blame shows
+            },
+        },
+    },
+    {
         "christoomey/vim-tmux-navigator",
         event = "VeryLazy",
         cmd = {
@@ -82,5 +93,15 @@ return {
             --   If not available, we use `mini` as the fallback
             "rcarriga/nvim-notify",
         },
+    },
+    {
+        "rmagatti/auto-session",
+        lazy = false,
+        config = function()
+            require("auto-session").setup {
+                log_level = "error",
+                auto_session_enable_cmd_pre_hook = false,
+            }
+        end,
     },
 }
