@@ -42,6 +42,23 @@ map("n", "<leader>fw", function()
     }
 end, { desc = "Telescope Live Grep" })
 
+map("x", "v", function()
+    if vim.treesitter.get_parser(nil, nil, { error = false }) then
+        require("vim.treesitter._select").select_parent(vim.v.count1)
+    else
+        vim.lsp.buf.selection_range(vim.v.count1)
+    end
+end, { desc = "Increment selection" })
+
+-- 3. SHRINK SELECTION with 'V' (Shift+v) in Visual Mode
+map("x", "V", function()
+    if vim.treesitter.get_parser(nil, nil, { error = false }) then
+        require("vim.treesitter._select").select_child(vim.v.count1)
+    else
+        vim.lsp.buf.selection_range(-vim.v.count1)
+    end
+end, { desc = "Decrement selection" })
+
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
 -- overwriting the same lines in NvChad mapping file, in order to add `async = true`
