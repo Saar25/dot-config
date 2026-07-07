@@ -59,6 +59,23 @@ map("x", "V", function()
     end
 end, { desc = "Decrement selection" })
 
+map("n", "<leader>fm", function()
+    -- 1. Format the file using conform
+    require("conform").format({ lsp_fallback = true, async = false }, function(err)
+        if err then
+            return
+        end
+
+        -- 2. Clean up unused imports via LSP once formatting finishes
+        vim.lsp.buf.code_action {
+            context = {
+                only = { "source.removeUnusedImports" },
+            },
+            apply = true,
+        }
+    end)
+end, { desc = "Format file and remove unused imports" })
+
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
 -- overwriting the same lines in NvChad mapping file, in order to add `async = true`
