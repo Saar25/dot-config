@@ -9,6 +9,13 @@ return {
         "tpope/vim-obsession",
     },
     {
+        "mg979/vim-visual-multi",
+        lazy = false,
+        init = function()
+            require "configs.visual-multi"
+        end,
+    },
+    {
         "neovim/nvim-lspconfig",
         config = function()
             require "configs.lspconfig"

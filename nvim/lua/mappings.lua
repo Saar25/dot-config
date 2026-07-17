@@ -48,7 +48,7 @@ map("x", "v", function()
     else
         vim.lsp.buf.selection_range(vim.v.count1)
     end
-end, { desc = "Increment selection" })
+end, { desc = "Selection increment " })
 
 -- 3. SHRINK SELECTION with 'V' (Shift+v) in Visual Mode
 map("x", "V", function()
@@ -57,7 +57,7 @@ map("x", "V", function()
     else
         vim.lsp.buf.selection_range(-vim.v.count1)
     end
-end, { desc = "Decrement selection" })
+end, { desc = "Selection decrement" })
 
 map("n", "<leader>fm", function()
     -- 1. Format the file using conform
