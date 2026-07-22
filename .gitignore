@@ -7,6 +7,7 @@
 !LICENSE
 !/nvim/
 !/tmux/
+!/lazydocker/
 
 # Ignore OS-specific junk or local lockfiles
 **/.DS_Store
