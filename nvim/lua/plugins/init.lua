@@ -33,6 +33,11 @@ return {
         },
     },
     {
+        "nvim-tree/nvim-tree.lua",
+        cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+        opts = require "configs.tree",
+    },
+    {
         "christoomey/vim-tmux-navigator",
         event = "VeryLazy",
         cmd = {
