@@ -16,6 +16,21 @@ map("n", "<leader>e", ':lua vim.diagnostic.open_float(0, {scope="line"})<CR>', {
     desc = "Show error",
 })
 
+map("n", "<leader>bd", function()
+    local current_buf = vim.api.nvim_get_current_buf()
+    local all_bufs = vim.api.nvim_list_bufs()
+
+    for _, buf in ipairs(all_bufs) do
+        if vim.api.nvim_buf_is_valid(buf) and vim.bo[buf].buflisted then
+            local name = vim.api.nvim_buf_get_name(buf)
+            -- Check that it is not the current buffer and not nvim-tree
+            if buf ~= current_buf and not name:match "NvimTree_" then
+                vim.api.nvim_buf_delete(buf, { force = false })
+            end
+        end
+    end
+end, { desc = "Close all buffers except current and nvim-tree" })
+
 -- ========
 -- Markdown
 -- ========
