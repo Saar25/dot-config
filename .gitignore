@@ -5,6 +5,8 @@
 !.gitignore
 !README.md
 !LICENSE
+!/zsh/
+!/aliases/
 !/nvim/
 !/tmux/
 !/lazydocker/

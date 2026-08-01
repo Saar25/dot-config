@@ -1,0 +1,10 @@
+alias vim=nvim
+alias vi=nvim
+
+alias "c=xclip -selection clipboard"
+alias "v=xclip -o -selection clipboard"
+
+alias "lgit=lazygit"
+alias "ldocker=lazydocker"
+
+alias "python=python3"
