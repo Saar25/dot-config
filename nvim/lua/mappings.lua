@@ -75,7 +75,7 @@ map("n", "<leader>fw", function()
             return { "--fixed-strings" }
         end,
     }
-end, { desc = "Telescope Live Grep" })
+end, { desc = "Telescope Live Grep (Regex)" })
 
 -- ==========
 -- Treesitter
