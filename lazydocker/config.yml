@@ -1,3 +1,5 @@
+gui:
+  returnImmediately: true
 customCommands:
   images:
     - name: "Run Container (Keep Alive)"
