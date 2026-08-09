@@ -10,6 +10,7 @@
 !/nvim/
 !/tmux/
 !/lazydocker/
+!/lazygit/
 
 # Ignore OS-specific junk or local lockfiles
 **/.DS_Store
