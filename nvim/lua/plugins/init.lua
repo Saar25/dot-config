@@ -117,23 +117,35 @@ return {
         end,
     },
     {
-        "kdheepak/lazygit.nvim",
+        "akinsho/toggleterm.nvim",
         lazy = false,
-        cmd = {
-            "LazyGit",
-            "LazyGitConfig",
-            "LazyGitCurrentFile",
-            "LazyGitFilter",
-            "LazyGitFilterCurrentFile",
-        },
-        -- -- optional for floating window border decoration
-        -- dependencies = {
-        --     "nvim-lua/plenary.nvim",
-        -- },
-        -- setting the keybinding for LazyGit with 'keys' is recommended in
-        -- order to load the plugin when the command is run for the first time
-        keys = {
-            { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
-        },
+        config = function()
+            require("toggleterm").setup()
+
+            local Terminal = require("toggleterm.terminal").Terminal
+
+            local lazygit = Terminal:new {
+                cmd = "lazygit",
+                direction = "float",
+                hidden = true,
+                float_opts = {
+                    border = "curved",
+                },
+                on_open = function(term)
+                    vim.cmd "startinsert!"
+                    vim.keymap.set(
+                        "t",
+                        "<M-q>",
+                        "<cmd>close<CR>",
+                        { buffer = term.bufnr, nowait = true, noremap = true, silent = true }
+                    )
+                end,
+            }
+
+            -- Keymap to toggle the persistent Lazygit window
+            vim.keymap.set({ "n", "t" }, "<leader>lg", function()
+                lazygit:toggle()
+            end, { desc = "Toggle Persistent Lazygit" })
+        end,
     },
 }
