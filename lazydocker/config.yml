@@ -4,7 +4,7 @@ customCommands:
   images:
     - name: "Run Container (Keep Alive)"
       attach: false
-      command: "docker run --network host -d -it {{ .Image.Name }} sh"
+      command: 'docker run --network host --name "{{ .Image.Name }}" -d -it {{ .Image.Name }} sh'
     - name: "Run Container (Detach)"
       attach: false
-      command: "docker run --network host -d {{ .Image.Name }}"
+      command: 'docker run --network host --name "{{ .Image.Name }}" -d {{ .Image.Name }}'
