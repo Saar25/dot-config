@@ -1,0 +1,59 @@
+{
+  "version": 3,
+  "lines": [
+    [
+      {
+        "id": "189e8c31-6a05-4414-896e-f1645f6918c2",
+        "type": "current-working-dir",
+        "metadata": {
+          "segments": "2",
+          "abbreviateHome": "true"
+        }
+      },
+      {
+        "id": "2700527c-3b8f-4cab-a47a-aebb52364efd",
+        "type": "git-branch",
+        "metadata": {
+          "linkToRepo": "true"
+        }
+      },
+      {
+        "id": "2420e56c-4c92-4392-b708-338390328d2b",
+        "type": "model"
+      },
+      {
+        "id": "17924432-eab3-43d5-9b2c-2d9b93b5a765",
+        "type": "context-bar",
+        "metadata": {
+          "display": "progress-short"
+        }
+      }
+    ],
+    [],
+    []
+  ],
+  "flexMode": "full",
+  "compactThreshold": 60,
+  "colorLevel": 2,
+  "defaultPadding": " ",
+  "defaultPaddingSide": "both",
+  "inheritSeparatorColors": false,
+  "overrideForegroundColor": "gradient:morning",
+  "globalBold": false,
+  "gitCacheTtlSeconds": 5,
+  "minimalistMode": true,
+  "powerline": {
+    "enabled": false,
+    "separators": [
+      ""
+    ],
+    "separatorInvertBackground": [
+      false
+    ],
+    "startCaps": [],
+    "endCaps": [],
+    "theme": "nord-aurora",
+    "autoAlign": false,
+    "continueThemeAcrossLines": false
+  }
+}

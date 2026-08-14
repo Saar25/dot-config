@@ -12,6 +12,7 @@
 !/lazydocker/
 !/lazygit/
 !/k9s/
+!/ccstatusline/
 
 # Ignore OS-specific junk or local lockfiles
 **/.DS_Store
