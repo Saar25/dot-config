@@ -3,14 +3,22 @@ require("nvchad.configs.lspconfig").defaults()
 vim.lsp.config["ts_ls"] = {
     -- shouldn't do this, its only because our project doesn't have tsconfig in its packages, should just add one that extends root base
     root_dir = function(bufnr, on_dir)
-        local root_markers = {
-            "tsconfig.ts",
-            "tsconfig.json",
+        -- Prioritize markers that only exist at the absolute monorepo root
+        local nx_monorepo_markers = {
+            "nx.json",
+            "tsconfig.base.json",
             ".git",
+        }
+
+        -- Fall back to local package markers if not in an Nx repo
+        local local_markers = {
+            "tsconfig.json",
             "package.json",
         }
 
-        local project_root = vim.fs.root(bufnr, root_markers) or vim.fn.getcwd()
+        local project_root = vim.fs.root(bufnr, nx_monorepo_markers)
+            or vim.fs.root(bufnr, local_markers)
+            or vim.fn.getcwd()
 
         if project_root then
             on_dir(project_root)
