@@ -120,32 +120,7 @@ return {
         "akinsho/toggleterm.nvim",
         lazy = false,
         config = function()
-            require("toggleterm").setup()
-
-            local Terminal = require("toggleterm.terminal").Terminal
-
-            local lazygit = Terminal:new {
-                cmd = "lazygit",
-                direction = "float",
-                hidden = true,
-                float_opts = {
-                    border = "curved",
-                },
-                on_open = function(term)
-                    vim.cmd "startinsert!"
-                    vim.keymap.set(
-                        "t",
-                        "<M-q>",
-                        "<cmd>close<CR>",
-                        { buffer = term.bufnr, nowait = true, noremap = true, silent = true }
-                    )
-                end,
-            }
-
-            -- Keymap to toggle the persistent Lazygit window
-            vim.keymap.set({ "n", "t" }, "<leader>lg", function()
-                lazygit:toggle()
-            end, { desc = "Toggle Persistent Lazygit" })
+            require "configs.toggleterm"
         end,
     },
 }
