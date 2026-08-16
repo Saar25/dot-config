@@ -16,7 +16,9 @@
         "metadata": {
           "linkToRepo": "true"
         }
-      },
+      }
+    ],
+    [
       {
         "id": "2420e56c-4c92-4392-b708-338390328d2b",
         "type": "model"
@@ -29,7 +31,6 @@
         }
       }
     ],
-    [],
     []
   ],
   "flexMode": "full",
