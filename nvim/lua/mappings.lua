@@ -29,7 +29,35 @@ map("n", "<leader>bd", function()
             end
         end
     end
-end, { desc = "Close all buffers except current and nvim-tree" })
+end, { desc = "Close all buffers except current" })
+
+map("n", "<leader>bD", function()
+    local all_bufs = vim.api.nvim_list_bufs()
+
+    for _, buf in ipairs(all_bufs) do
+        if vim.api.nvim_buf_is_valid(buf) and vim.bo[buf].buflisted then
+            local name = vim.api.nvim_buf_get_name(buf)
+            -- Check that it is not nvim-tree
+            if not name:match "NvimTree_" then
+                vim.api.nvim_buf_delete(buf, { force = false })
+            end
+        end
+    end
+end, { desc = "Close all buffers" })
+
+
+-- ==========
+-- Toggleterm
+-- ==========
+
+map({ "n", "t" }, "<leader>lg", function()
+    require("configs.toggleterm").lazygit_terminal:toggle()
+end, { desc = "Toggle Persistent Lazygit" })
+
+map({ "n", "t" }, "<leader>ld", function()
+    require("configs.toggleterm").lazydocker_terminal:toggle()
+end, { desc = "Toggle Persistent Lazydocker" })
+
 
 -- ========
 -- Markdown
@@ -117,10 +145,3 @@ map("n", "<leader>fm", function()
         }
     end)
 end, { desc = "Format file and remove unused imports" })
-
--- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
-
--- overwriting the same lines in NvChad mapping file, in order to add `async = true`
--- map("n", "<leader>fm", function()
---   require("conform").format({ async = true, lsp_fallback = true })
--- end, { desc = "custom format files" })

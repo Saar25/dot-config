@@ -22,13 +22,7 @@ local function term_opts(cmd)
     }
 end
 
-local lazygit = Terminal:new(term_opts "lazygit")
-local lazydocker = Terminal:new(term_opts "lazydocker")
-
-vim.keymap.set({ "n", "t" }, "<leader>lg", function()
-    lazygit:toggle()
-end, { desc = "Toggle Persistent Lazygit" })
-
-vim.keymap.set({ "n", "t" }, "<leader>ld", function()
-    lazydocker:toggle()
-end, { desc = "Toggle Persistent Lazydocker" })
+return {
+    lazygit_terminal = Terminal:new(term_opts "lazygit"),
+    lazydocker_terminal = Terminal:new(term_opts "lazydocker"),
+}
